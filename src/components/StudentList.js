@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+// src/components/StudentList.js
+
+import React, { useEffect, useState } from "react";
+import { fetchWithFallback, primaryUrl, fallbackUrl } from "../api";
 import StudentItem from "./StudentItem";
 import AddStudentForm from "./AddStudentForm";
 
@@ -7,17 +9,13 @@ function StudentList() {
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
+    const fetchStudents = async () => {
+      const students = await fetchWithFallback(primaryUrl, fallbackUrl);
+      setStudents(students);
+    };
+
     fetchStudents();
   }, []);
-
-  const fetchStudents = async () => {
-    try {
-      const response = await axios.get("http://localhost:4000/api/students");
-      setStudents(response.data);
-    } catch (error) {
-      console.error("Error fetching students:", error);
-    }
-  };
 
   return (
     <div className="container mx-auto p-4">
