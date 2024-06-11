@@ -3,7 +3,7 @@
 import axios from "axios";
 
 const primaryUrl = "http://localhost:4000/api/students";
-const fallbackUrl = "http://192.168.0.200:4000/api/students";
+const fallbackUrl = "http://192.168.0.109:4000/api/students";
 
 const fetchWithFallback = async (primary, fallback) => {
   try {
