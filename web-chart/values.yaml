@@ -5,10 +5,11 @@
 replicaCount: 1
 
 image:
-  repository: nginx
+  registry: docker.io
+  repository: xuanhaj/my-react-app
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "v3"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -40,7 +41,8 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
+  type: NodePort
+  nodePort:30002
   port: 80
 
 ingress:
@@ -74,11 +76,11 @@ resources: {}
 livenessProbe:
   httpGet:
     path: /
-    port: http
-readinessProbe:
-  httpGet:
-    path: /
-    port: http
+    port: 80 
+# readinessProbe:
+#   httpGet:
+#     path: /
+#     port: http
 
 autoscaling:
   enabled: false
