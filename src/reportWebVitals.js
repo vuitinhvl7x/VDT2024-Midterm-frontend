@@ -1,23 +1,18 @@
 import { getCLS, getFID, getLCP, getTTFB, getFCP } from "web-vitals";
+import axios from "axios";
 
 const sendToAnalytics = (metric) => {
   const body = JSON.stringify(metric);
 
-  const url = "http://localhost:4000/api/metrics";
-
-  // Gửi dữ liệu metrics tới backend
-  if (navigator.sendBeacon) {
-    navigator.sendBeacon(url, body);
-  } else {
-    fetch(url, {
-      body,
-      method: "POST",
-      keepalive: true,
+  axios
+    .post("http://localhost:4000/api/metrics", body, {
       headers: {
         "Content-Type": "application/json",
       },
+    })
+    .catch((error) => {
+      console.error("Error posting data:", error);
     });
-  }
 };
 
 const reportWebVitals = (onPerfEntry) => {
