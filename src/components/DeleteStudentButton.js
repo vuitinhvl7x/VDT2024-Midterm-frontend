@@ -32,7 +32,7 @@ function DeleteStudentButton({ id, onDeleteSuccess }) {
 
   const handleDelete = () => {
     axios
-      .delete(`http://localhost:4000/api/students/${id}`)
+      .delete(`http://192.168.56.61:30001/api/students/${id}`)
       .then(() => {
         onDeleteSuccess(id);
       })

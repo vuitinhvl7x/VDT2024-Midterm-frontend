@@ -55,7 +55,7 @@ function AddStudentForm({ setStudents }) {
 
     if (validateForm()) {
       axios
-        .post("http://localhost:4000/api/students", formData)
+        .post("http://192.168.56.61:30001/api/students", formData)
         .then((response) => {
           setStudents((prevStudents) => [...prevStudents, response.data]);
           setFormData({
