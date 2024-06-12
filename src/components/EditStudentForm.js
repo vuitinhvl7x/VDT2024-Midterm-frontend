@@ -24,7 +24,7 @@ function EditStudentForm({ student, setStudents, onCancel }) {
     const formErrors = validateFormData(formData);
     if (Object.keys(formErrors).length === 0) {
       axios
-        .put(`http://localhost:4000/api/students/${student.id}`, formData)
+        .put(`http://192.168.56.61:30001/api/students/${student.id}`, formData)
         .then((response) => {
           setStudents((prevStudents) =>
             prevStudents.map((s) => (s.id === student.id ? response.data : s))
