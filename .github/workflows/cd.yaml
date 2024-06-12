@@ -37,7 +37,7 @@ jobs:
       - name: Checkout config repository
         uses: actions/checkout@v4
         with:
-          repository: https://github.com/vuitinhvl7x/VDT2024-web-config
+          repository: vuitinhvl7x/VDT2024-web-config
           ref: main
           token: ${{ secrets.PAT_TOKEN }}
 
