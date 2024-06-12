@@ -39,18 +39,7 @@ jobs:
         with:
           repository: vuitinhvl7x/VDT2024-web-config
           ref: main
-          ssh-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          ssh-strict: true
-          ssh-user: git
-          persist-credentials: true
-          clean: true
-          sparse-checkout-cone-mode: true
-          fetch-depth: 1
-          fetch-tags: false
-          show-progress: true
-          lfs: false
-          submodules: false
-          set-safe-directory: true
+          token: ${{ secrets.PAT_TOKEN }}
 
       - name: Update values.yaml
         run: |
