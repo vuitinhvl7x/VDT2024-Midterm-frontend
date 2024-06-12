@@ -39,7 +39,7 @@ jobs:
         with:
           repository: vuitinhvl7x/VDT2024-web-config
           ref: main
-          token: ${{ secrets.PAT_TOKEN }}
+          token: ${{ secrets.ACTION_GITHUB_TOKEN }}
 
       - name: Update values.yaml
         run: |
