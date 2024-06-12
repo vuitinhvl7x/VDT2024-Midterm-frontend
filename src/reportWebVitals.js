@@ -5,7 +5,7 @@ const sendToAnalytics = (metric) => {
   const body = JSON.stringify(metric);
 
   axios
-    .post("http://localhost:4000/api/metrics", body, {
+    .post("http://10.103.152.171:4000/api/metrics", body, {
       headers: {
         "Content-Type": "application/json",
       },
