@@ -25,7 +25,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: users
+          context: . 
           tags: ${{ secrets.DOCKER_USERNAME }}/my-react-app:${{ github.ref_name }}
           push: true
 
