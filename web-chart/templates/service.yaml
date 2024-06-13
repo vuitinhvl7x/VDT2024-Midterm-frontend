@@ -5,11 +5,12 @@ metadata:
   labels:
     {{- include "web-chart.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
+  type: NodePort
   ports:
     - port: {{ .Values.service.port }}
-      targetPort: http
+      targetPort: {{ .Values.service.port }}
       protocol: TCP
       name: http
+      nodePort: {{ .Values.service.nodePort }}  # Đảm bảo rằng NodePort nằm trong dải cổng NodePort hợp lệ
   selector:
     {{- include "web-chart.selectorLabels" . | nindent 4 }}
