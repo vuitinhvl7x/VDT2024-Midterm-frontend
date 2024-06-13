@@ -3,9 +3,10 @@ import axios from "axios";
 
 const sendToAnalytics = (metric) => {
   const body = JSON.stringify(metric);
+  const ANALYTICS_URL = "http://192.168.56.61:30001/metrics"; // Sử dụng URL tuyệt đối
 
   axios
-    .post("http://192.168.56.61:30001/metrics", body, {
+    .post(ANALYTICS_URL, body, {
       headers: {
         "Content-Type": "application/json",
       },
