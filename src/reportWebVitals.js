@@ -5,7 +5,7 @@ const sendToAnalytics = (metric) => {
   const body = JSON.stringify(metric);
 
   axios
-    .get("http://192.168.56.61:30001/api/metrics", body, {
+    .get("http://192.168.56.61:30001/metrics", body, {
       headers: {
         "Content-Type": "application/json",
       },
